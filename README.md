@@ -93,7 +93,7 @@ license: mit
 
 ## 🚀 快速开始
 
-### 方法一: Docker Compose 部署
+### 方法一: Docker Compose 部署（当前仅支持 linux/amd64 架构）
 
 ```bash
 # 1.下载 docker-compose.yml 文件
