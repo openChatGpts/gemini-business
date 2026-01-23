@@ -17,6 +17,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --d
 
 # 安装 Chrome、Xvfb 和必要的依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    tini \
     fonts-liberation \
     libasound2 \
     libatk-bridge2.0-0 \
@@ -80,7 +81,7 @@ ENV TZ=Asia/Shanghai
 ENV CHROME_BIN=/usr/bin/google-chrome-stable
 
 # 使用 Xvfb 启动脚本作为 entrypoint
-ENTRYPOINT ["/app/start-xvfb.sh"]
+ENTRYPOINT ["tini", "--", "/app/start-xvfb.sh"]
 
 # 启动主服务
 CMD ["uv", "run", "python", "-u", "main.py"]

@@ -844,6 +844,12 @@ async def admin_get_settings(request: Request):
             "api_key": config.basic.api_key,
             "base_url": config.basic.base_url,
             "proxy": config.basic.proxy,
+            # ========== 代理池配置（老王特制） ==========
+            "proxy_pool": config.basic.proxy_pool,
+            "proxy_strategy": config.basic.proxy_strategy,
+            "proxy_health_check": config.basic.proxy_health_check,
+            "proxy_timeout": config.basic.proxy_timeout,
+            # ==========================================
             "mail_api": config.basic.mail_api,
             "mail_admin_key": config.basic.mail_admin_key,
             "google_mail": config.basic.google_mail,
