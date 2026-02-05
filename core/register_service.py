@@ -414,7 +414,7 @@ class RegisterService:
             task.finished_at = time.time()
             self._current_task_id = None
             self._stop_requested = False  # 重置停止标志
-            if self._on_task_finished and task.success_count > 0:
+            if self._on_task_finished:
                 try:
                     await self._on_task_finished(task)
                 except Exception as e:
